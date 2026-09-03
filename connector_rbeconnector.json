@@ -1,0 +1,31 @@
+{
+  "name": "RBEConnector",
+  "description": "RBEConnector",
+  "uuid": "831da3a8-b452-5dc0-ab58-44ccb760d765",
+  "docker_parameters": "RBEConnector",
+  "arguments": {
+    "properties": {
+      "intake_server": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Intake Server"
+      },
+      "intake_key": {
+        "title": "Intake Key",
+        "type": "string"
+      }
+    },
+    "required": [
+      "intake_key"
+    ],
+    "title": "DefaultConnectorConfiguration",
+    "type": "object"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "configuration": {
+    "properties": {
+      "api_key": {
+        "description": "API Key",
+        "title": "Api Key",
+        "type": "string"
+      },
+      "api_base_url": {
+        "description": "API Base URL",
+        "title": "Api Base Url",
+        "type": "string"
+      }
+    },
+    "required": [
+      "api_key",
+      "api_base_url"
+    ],
+    "title": "Rbe_ConnectorModuleConfiguration",
+    "type": "object",
+    "secrets": [
+      "api_key",
+      "api_base_url"
+    ]
+  },
+  "description": "rbe generic api connector",
+  "name": "rbe_connector",
+  "slug": "rbe_connector",
+  "categories": [],
+  "uuid": "db6c542f-8dac-49e2-af18-ed666ab8f3fc",
+  "version": "0.1.0"
+}

@@ -1,5 +1,6 @@
 import time
 
+import orjson
 from sekoia_automation.connector import Connector
 
 
@@ -21,7 +22,13 @@ class RBEConnector(Connector):
             ]
 
             # Ingest the collected events in Sekoia
-            self.push_events_to_intakes(events=collected_events)
-
+            batch_of_events = [orjson.dumps(event).decode("utf-8") for event in collected_events]
+            if len(batch_of_events) > 0:
+                self.log(
+                    message=f"{len(batch_of_events)} events collected",
+                    level="info",
+                )
+                self.push_events_to_intakes(events=batch_of_events)
+                self.log(message="Events pushed to intakes!", level="info")
             # Wait 60s before collecting the next batch of events
             time.sleep(60)

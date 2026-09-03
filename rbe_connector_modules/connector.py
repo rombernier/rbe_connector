@@ -22,7 +22,7 @@ class RBEConnector(Connector):
             ]
 
             # Ingest the collected events in Sekoia
-            batch_of_events = [orjson.dumps(event).decode("utf-8") for event in collected_events]
+            batch_of_events = collected_events
             if len(batch_of_events) > 0:
                 self.log(
                     message=f"{len(batch_of_events)} events collected",
